@@ -36,7 +36,7 @@ public class Background {
 	}
 
 	// Renders the background
-	public void render(SpriteBatch sb) {
+	public void render(SpriteBatch batch) {
 		// Calculates X and Y
 		float x = ((this.x + gameCam.viewportWidth / 2 - gameCam.position.x))
 				% image.getRegionWidth();
@@ -44,15 +44,15 @@ public class Background {
 				% image.getRegionHeight();
 
 		// Draws the background
-		sb.begin();
+		batch.begin();
 		int colOffset = x > 0 ? -1 : 0;
 		int rowOffset = y > 0 ? -1 : 0;
 		for (int row = 0; row < numDrawY; row++) {
 			for (int col = 0; col < numDrawX; col++) {
-				sb.draw(image, x + (col + colOffset) * image.getRegionWidth(),
+				batch.draw(image, x + (col + colOffset) * image.getRegionWidth(),
 						y + (rowOffset + row) * image.getRegionHeight());
 			}
 		}
-		sb.end();
+		batch.end();
 	}
 }
