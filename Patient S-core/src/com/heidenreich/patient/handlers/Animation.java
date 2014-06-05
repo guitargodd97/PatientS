@@ -1,6 +1,7 @@
 package com.heidenreich.patient.handlers;
 
 import com.badlogic.gdx.graphics.g2d.Sprite;
+import com.badlogic.gdx.math.Vector2;
 
 public class Animation {
 
@@ -51,6 +52,11 @@ public class Animation {
 		currentFrame = 0;
 		timesPlayed = 0;
 		this.delay = delay;
+	}
+
+	// Sets the location if the frame
+	public void setLocation(Vector2 v) {
+		frames[currentFrame].setPosition(v.x, v.y);
 	}
 
 	// Updates the animation
