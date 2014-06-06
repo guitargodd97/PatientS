@@ -13,6 +13,8 @@ import com.heidenreich.patient.handlers.PlayerStats;
 
 public class PatientSGame implements ApplicationListener {
 
+	public static final int HEIGHT = 480;
+	public static final int WIDTH = 800;
 	public static final String TITLE = "PatientS";
 	public static final String VER = "Alpah 1.0";
 
@@ -40,6 +42,12 @@ public class PatientSGame implements ApplicationListener {
 
 		// Sets up the SpriteBatch
 		batch = new SpriteBatch();
+		
+		//Sets up the camera
+		cam = new BoundedCamera();
+		cam.setToOrtho(false, PatientSGame.WIDTH, PatientSGame.HEIGHT);
+		hud = new OrthographicCamera();
+		hud.setToOrtho(false, PatientSGame.WIDTH, PatientSGame.HEIGHT);
 
 		// Creates a new GameStateManager
 		gsm = new GameStateManager(this);
@@ -126,6 +134,7 @@ public class PatientSGame implements ApplicationListener {
 
 	// Loads the PlayerStats
 	private void loadPlayerStats() {
+		PatientSGame.PLAYER_STATS = new PlayerStats();
 		PatientSGame.getPlayerStats().loadData();
 	}
 

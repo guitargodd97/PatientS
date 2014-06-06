@@ -48,6 +48,7 @@ public class Assets {
 
 	// Loads all the texture files
 	private void loadTextures() {
+		textureManager.load(TEXTURE_LOCATION, TextureAtlas.class);
 		textureManager.finishLoading();
 	}
 

@@ -20,6 +20,11 @@ public class GUIButton {
 		this.width = buttons[0].getWidth();
 		this.height = buttons[0].getHeight();
 		clicked = false;
+
+		for (int i = 0; i < this.buttons.length; i++)
+			this.buttons[i].setPosition(this.x
+					- (this.buttons[i].getWidth() / 2), this.y
+					- (this.buttons[i].getHeight() / 2));
 	}
 
 	// Updates the button
