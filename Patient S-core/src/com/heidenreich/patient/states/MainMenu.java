@@ -12,6 +12,8 @@ public class MainMenu extends Menu {
 		super(gsm);
 		setupButtons(5);
 		background.setVector(10, 0);
+		title = PatientSGame.getAssets().getSprite("title");
+		title.setPosition(400 - (title.getWidth() / 2), 480 - title.getHeight());
 	}
 
 	// Handles the input
@@ -37,52 +39,29 @@ public class MainMenu extends Menu {
 			gsm.setState(GameStateManager.STATS);
 	}
 
-	// Updates the menu
-	public void update(float dt) {
-		handleInput();
-
-		background.update(dt);
-		//animation.update(dt);
-
-		//for (GUIButton gui : buttons)
-		//	gui.update(dt);
-		buttons[2].update(dt);
-	}
-
-	// Renders the menu
-	public void render() {
-		background.render(batch);
-		for (GUIButton gui : buttons)
-			gui.render(batch);
-	}
-
-	// Disposes of the resources
-	public void dispose() {
-	}
-
 	// Sets up the buttons
 	protected void setupButtons(int number) {
 		buttons = new GUIButton[number];
 
 		// Start Button
 		buttons[0] = new GUIButton(PatientSGame.getAssets().getAnimatedSprite(
-				"startbutton", 2), 400, 380);
+				"startbutton", 2), 150, 275);
 
 		// Lab Button
 		buttons[1] = new GUIButton(PatientSGame.getAssets().getAnimatedSprite(
-				"labbutton", 2), 400, 300);
+				"labbutton", 2), 550, 250);
 
 		// Quit Button
 		buttons[2] = new GUIButton(PatientSGame.getAssets().getAnimatedSprite(
-				"quitbutton", 2), 400, 60);
+				"quitbutton", 2), 400, 45);
 
 		// Options Button
 		buttons[3] = new GUIButton(PatientSGame.getAssets().getAnimatedSprite(
-				"optionsbutton", 2), 400, 220);
+				"optionsbutton", 2), 745, 55);
 
 		// Stats Button
 		buttons[4] = new GUIButton(PatientSGame.getAssets().getAnimatedSprite(
-				"statsbutton", 2), 400, 140);
+				"statsbutton", 2), 55, 55);
 	}
 
 }

@@ -42,8 +42,8 @@ public class PatientSGame implements ApplicationListener {
 
 		// Sets up the SpriteBatch
 		batch = new SpriteBatch();
-		
-		//Sets up the camera
+
+		// Sets up the camera
 		cam = new BoundedCamera();
 		cam.setToOrtho(false, PatientSGame.WIDTH, PatientSGame.HEIGHT);
 		hud = new OrthographicCamera();
@@ -55,6 +55,10 @@ public class PatientSGame implements ApplicationListener {
 
 	// Renders and updates the game
 	public void render() {
+		//Debug title
+		Gdx.graphics.setTitle(PatientSGame.getLog() + " -- FPS: "
+				+ Gdx.graphics.getFramesPerSecond());
+
 		// Update and render the GameStateManager
 		gsm.update(Gdx.graphics.getDeltaTime());
 		gsm.render();

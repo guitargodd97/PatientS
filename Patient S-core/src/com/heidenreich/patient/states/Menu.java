@@ -1,6 +1,7 @@
 package com.heidenreich.patient.states;
 
 import com.badlogic.gdx.audio.Music;
+import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.heidenreich.patient.PatientSGame;
 import com.heidenreich.patient.handlers.Animation;
 import com.heidenreich.patient.handlers.Background;
@@ -13,6 +14,7 @@ public abstract class Menu extends GameState {
 	protected Background background;
 	protected GUIButton[] buttons;
 	protected Music menuMusic;
+	protected Sprite title;
 
 	protected Menu(GameStateManager gsm) {
 		super(gsm);
@@ -22,4 +24,25 @@ public abstract class Menu extends GameState {
 
 	protected abstract void setupButtons(int number);
 
+	// Updates the menu
+	public void update(float dt) {
+		handleInput();
+		background.update(dt);
+		for (GUIButton gui : buttons)
+			gui.update(dt);
+	}
+
+	// Renders the menu
+	public void render() {
+		background.render(batch);
+		batch.begin();
+		title.draw(batch);
+		batch.end();
+		for (GUIButton gui : buttons)
+			gui.render(batch);
+	}
+
+	// Disposes of the resources
+	public void dispose() {
+	}
 }
