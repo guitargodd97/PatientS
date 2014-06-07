@@ -27,6 +27,23 @@ public class GUIButton {
 					- (this.buttons[i].getHeight() / 2));
 	}
 
+	public GUIButton(Sprite button, float x, float y) {
+		this.buttons = new Sprite[2];
+		this.buttons[0] = button;
+		this.buttons[1] = button;
+		this.x = x;
+		this.y = y;
+		this.width = buttons[0].getWidth();
+		this.height = buttons[0].getHeight();
+		clicked = false;
+
+		for (int i = 0; i < this.buttons.length; i++)
+			this.buttons[i].setPosition(this.x
+					- (this.buttons[i].getWidth() / 2), this.y
+					- (this.buttons[i].getHeight() / 2));
+
+	}
+
 	// Updates the button
 	public void update(float dt) {
 		if (PatientInput.isPressed() && PatientInput.x > x - width / 2

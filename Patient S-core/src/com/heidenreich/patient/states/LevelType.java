@@ -9,7 +9,7 @@ public class LevelType extends Menu {
 	// Creates a LevelType state
 	public LevelType(GameStateManager gsm) {
 		super(gsm);
-		setupButtons(4);
+		setupButtons(5);
 		background.setVector(-12, 0);
 		title = PatientSGame.getAssets().getSprite("leveltypetitle");
 		title.setPosition(400 - (title.getWidth() / 2), 480 - title.getHeight());
@@ -34,6 +34,10 @@ public class LevelType extends Menu {
 		// Absorb Level Button
 		buttons[3] = new GUIButton(PatientSGame.getAssets().getAnimatedSprite(
 				"absorbbutton", 2), 660, 200);
+
+		// Unlimited Mode Button
+		buttons[4] = new GUIButton(PatientSGame.getAssets().getAnimatedSprite(
+				"unlimitedbutton", 2), 400, 25);
 	}
 
 	// Handles the input
@@ -43,15 +47,24 @@ public class LevelType extends Menu {
 			gsm.setState(GameStateManager.MAIN_MENU);
 
 		// Kill Level Button
-		if (buttons[1].isClicked())
-			gsm.setState(GameStateManager.KILL_LEVEL);
+		if (buttons[1].isClicked()) {
+			GameStateManager.SAVED_TYPE = GameStateManager.KILL_LEVEL;
+			gsm.setState(GameStateManager.LEVEL_SELECT);
+		}
 
 		// Survival Level Button
-		if (buttons[2].isClicked())
-			gsm.setState(GameStateManager.SURVIVAL_LEVEL);
+		if (buttons[2].isClicked()) {
+			GameStateManager.SAVED_TYPE = GameStateManager.SURVIVAL_LEVEL;
+			gsm.setState(GameStateManager.LEVEL_SELECT);
+		}
 
 		// Absorb Level Button
-		if (buttons[3].isClicked())
-			gsm.setState(GameStateManager.ABSORB_LEVEL);
+		if (buttons[3].isClicked()) {
+			GameStateManager.SAVED_TYPE = GameStateManager.ABSORB_LEVEL;
+			gsm.setState(GameStateManager.LEVEL_SELECT);
+		}
+
+		if (buttons[4].isClicked())
+			gsm.setState(GameStateManager.UNLIMITED_LEVEL);
 	}
 }

@@ -16,6 +16,7 @@ import com.heidenreich.patient.states.Options;
 import com.heidenreich.patient.states.Pause;
 import com.heidenreich.patient.states.Stats;
 import com.heidenreich.patient.states.SurvivalLevel;
+import com.heidenreich.patient.states.UnlimitedLevel;
 import com.heidenreich.patient.states.Victory;
 
 public class GameStateManager {
@@ -35,7 +36,10 @@ public class GameStateManager {
 	public static final int PAUSE = -1511536;
 	public static final int STATS = 3287963;
 	public static final int SURVIVAL_LEVEL = -5378923;
+	public static final int UNLIMITED_LEVEL = -93939393;
 	public static final int VICTORY = -195708;
+	
+	public static int SAVED_TYPE;
 
 	// Creates a new GameStateManager
 	public GameStateManager(PatientSGame game) {
@@ -85,6 +89,8 @@ public class GameStateManager {
 			return new Stats(this);
 		if (state == SURVIVAL_LEVEL)
 			return new SurvivalLevel(this);
+		if(state == UNLIMITED_LEVEL)
+			return new UnlimitedLevel(this);
 		if (state == VICTORY)
 			return new Victory(this);
 		return null;
