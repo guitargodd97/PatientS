@@ -4,7 +4,7 @@ import com.heidenreich.patient.handlers.GameStateManager;
 
 public class KillLevel extends Play {
 
-	public KillLevel(GameStateManager gsm) {
+	public KillLevel(GameStateManager gsm, int level) {
 		super(gsm);
 	}
 

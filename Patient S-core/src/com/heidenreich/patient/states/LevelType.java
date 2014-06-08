@@ -10,7 +10,6 @@ public class LevelType extends Menu {
 	public LevelType(GameStateManager gsm) {
 		super(gsm);
 		setupButtons(5);
-		background.setVector(-12, 0);
 		title = PatientSGame.getAssets().getSprite("leveltypetitle");
 		title.setPosition(400 - (title.getWidth() / 2), 480 - title.getHeight());
 	}

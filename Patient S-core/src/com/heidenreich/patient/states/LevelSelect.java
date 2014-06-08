@@ -12,7 +12,6 @@ public class LevelSelect extends Menu {
 	public LevelSelect(GameStateManager gsm) {
 		super(gsm);
 		setupButtons(11);
-		background.setVector(-12, 22);
 		title = PatientSGame.getAssets().getSprite("selecttitle");
 		title.setPosition(400 - (title.getWidth() / 2), 480 - title.getHeight());
 	}
@@ -43,14 +42,26 @@ public class LevelSelect extends Menu {
 				"finalbossbutton", 2), 400, 50);
 	}
 
-	//Renders the state
+	// Renders the state
 	public void render() {
 		super.render();
-		for(GUIButton guiNum : nums)
+		for (GUIButton guiNum : nums)
 			guiNum.render(batch);
 	}
-	
+
+	// Handles the input
 	public void handleInput() {
+		// Back Button
+		if (buttons[0].isClicked())
+			gsm.setState(GameStateManager.LEVEL_TYPE);
+
+		// Level Buttons
+		for (int i = 1; i < buttons.length; i++) {
+			if (buttons[i].isClicked()) {
+				GameStateManager.SAVED_LEVEL = i;
+				gsm.setState(GameStateManager.SAVED_TYPE);
+			}
+		}
 	}
 
 }

@@ -18,8 +18,8 @@ public abstract class Menu extends GameState {
 
 	protected Menu(GameStateManager gsm) {
 		super(gsm);
-		background = new Background(PatientSGame.getAssets().getSprite(
-				"background0"), gsm.getGame().getCam());
+		background = new Background(PatientSGame.getAssets().getAnimatedSprite(
+				"background0", 2));
 	}
 
 	protected abstract void setupButtons(int number);

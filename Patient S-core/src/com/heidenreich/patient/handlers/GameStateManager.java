@@ -38,7 +38,8 @@ public class GameStateManager {
 	public static final int SURVIVAL_LEVEL = -5378923;
 	public static final int UNLIMITED_LEVEL = -93939393;
 	public static final int VICTORY = -195708;
-	
+
+	public static int SAVED_LEVEL;
 	public static int SAVED_TYPE;
 
 	// Creates a new GameStateManager
@@ -66,13 +67,13 @@ public class GameStateManager {
 	// Gets a state
 	private GameState getState(int state) {
 		if (state == ABSORB_LEVEL)
-			return new AbsorbLevel(this);
+			return new AbsorbLevel(this, SAVED_LEVEL);
 		if (state == ACHIEVEMENTS)
 			return new Achievements(this);
 		if (state == GAMEOVER)
 			return new Gameover(this);
 		if (state == KILL_LEVEL)
-			return new KillLevel(this);
+			return new KillLevel(this, SAVED_LEVEL);
 		if (state == LAB)
 			return new Lab(this);
 		if (state == LEVEL_SELECT)
@@ -88,26 +89,26 @@ public class GameStateManager {
 		if (state == STATS)
 			return new Stats(this);
 		if (state == SURVIVAL_LEVEL)
-			return new SurvivalLevel(this);
-		if(state == UNLIMITED_LEVEL)
+			return new SurvivalLevel(this, SAVED_LEVEL);
+		if (state == UNLIMITED_LEVEL)
 			return new UnlimitedLevel(this);
 		if (state == VICTORY)
 			return new Victory(this);
 		return null;
 	}
 
-	//Sets the state
+	// Sets the state
 	public void setState(int state) {
 		popState();
 		pushState(state);
 	}
 
-	//Pushes the state on top of the stack
+	// Pushes the state on top of the stack
 	public void pushState(int state) {
 		gameStates.push(getState(state));
 	}
 
-	//Pops the state off the stack and disposes of it
+	// Pops the state off the stack and disposes of it
 	public void popState() {
 		GameState g = gameStates.pop();
 		g.dispose();

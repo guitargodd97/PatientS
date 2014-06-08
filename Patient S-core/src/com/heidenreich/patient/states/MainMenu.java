@@ -11,7 +11,6 @@ public class MainMenu extends Menu {
 	public MainMenu(GameStateManager gsm) {
 		super(gsm);
 		setupButtons(5);
-		background.setVector(10, 0);
 		title = PatientSGame.getAssets().getSprite("title");
 		title.setPosition(400 - (title.getWidth() / 2), 480 - title.getHeight());
 	}

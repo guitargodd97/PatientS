@@ -4,7 +4,7 @@ import com.heidenreich.patient.handlers.GameStateManager;
 
 public class AbsorbLevel extends Play{
 
-	public AbsorbLevel(GameStateManager gsm) {
+	public AbsorbLevel(GameStateManager gsm, int level) {
 		super(gsm);
 	}
 	

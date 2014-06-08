@@ -20,7 +20,7 @@ public abstract class Play extends GameState {
 	protected Music gameMusic;
 	protected Player player;
 
-	protected Play(GameStateManager gsm) {
+	protected Play(GameStateManager gsm, int level) {
 		super(gsm);
 	}
 
