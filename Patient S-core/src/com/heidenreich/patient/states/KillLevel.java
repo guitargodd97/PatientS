@@ -5,7 +5,16 @@ import com.heidenreich.patient.handlers.GameStateManager;
 public class KillLevel extends Play {
 
 	public KillLevel(GameStateManager gsm, int level) {
-		super(gsm);
+		super(gsm, level);
+	}
+
+	@Override
+	protected boolean checkMission() {
+		return false;
+	}
+
+	@Override
+	public void handleInput() {
 	}
 
 }
